@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'org.greenrobot.greendao'
 }
 
 android {
@@ -38,6 +39,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'org.greenrobot:greendao:3.3.0' // add library
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
 
     compile files('libs/android-smart-image-view-1.0.0.jar')
     compile files('libs/android-async-http-1.4.8.jar')

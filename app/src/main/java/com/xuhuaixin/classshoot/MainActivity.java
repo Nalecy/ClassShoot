@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
         initView();
         fillLocalData();
+//        mockStudentData();
     }
 
     private void fillLocalData() {
@@ -58,7 +59,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         lvNews.setOnItemClickListener(this);
     }
 
-
+    private void mockStudentData() {
+        StudentDao studentDao = GreenDaoManager.getInstance().getStudentDao();
+        List<Student> students = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            Student student = new Student((long) i, "张三" + i, "", "广东");
+            students.add(student);
+        }
+        studentDao.insertInTx(students);
+    }
 
     //使用AsyncHttpClient访问网络
     private void fillData() {
@@ -114,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(ImageActivity.class);
                 break;
             case 3:
-
+                startActivity(ClassFamilyActivity.class);
                 break;
             case 4:
                 Intent i1 = new Intent(this,AnimationActivity.class);
